@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+.mantine-InputWrapper-label {
+    margin-bottom: 5px;
+}
+.mantine-Input-input:disabled{
+    color: black !important;
+}
+
+/* For Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 5px;              /* scrollbar width */
+  height: 5px;             /* scrollbar height for horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: #7da2d8;     /* track color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;        /* thumb color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;        /* hover color */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;   /* auto | thin | none */
+  scrollbar-color: #888 #f1f1f1; /* thumb | track */
+}
