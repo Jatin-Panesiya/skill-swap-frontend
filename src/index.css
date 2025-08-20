@@ -3,14 +3,16 @@
 @theme {
   --breakpoint-500: 500px;
   --breakpoint-600: 600px;
+  --color-primary: #008be1;
 }
 
 
 .mantine-InputWrapper-label {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
-.mantine-Input-input:disabled{
-    color: black !important;
+
+.mantine-Input-input:disabled {
+  color: black !important;
 }
 
 @font-face {
@@ -30,7 +32,8 @@
 
 .active {
   color: black;
-  .side-icon{
-      color: #228be6;
+
+  .side-icon {
+    color: #228be6;
   }
 }

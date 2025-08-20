@@ -7,6 +7,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import AuthRoute from "./components/AuthRoute/AuthRoute";
 import ManageProfile from "./pages/manage-profile/ManageProfile";
+import Users from "./pages/users/Users";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<ManageProfile />} />
+          <Route path="/users" element={<Users />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/login" />} />

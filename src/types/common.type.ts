@@ -2,7 +2,7 @@ export type Gender = "male" | "female" | "other";
 export type UserRole = "user" | "admin";
 
 export interface IUser {
-  _id: string;
+  _id?: string;
   email: string;
   password: string;
   name: string;

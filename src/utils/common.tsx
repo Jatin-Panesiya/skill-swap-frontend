@@ -25,3 +25,19 @@ export const getSkillIcon = (skill: Skill) => {
 
   return skillsIconMap[skill] ?? <FaQuestion color="gray" />;
 };
+
+export function getRandomColor() {
+  const colors = [
+    "#1F2937",
+    "#111827",
+    "#0F172A",
+    "#1E3A8A",
+    "#7F1D1D",
+    "#14532D",
+    "#78350F",
+    "#4C1D95",
+    "#701A75",
+    "#075985",
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
+}

@@ -7,12 +7,18 @@ import PrimaryModal from "../PrimaryModal/PrimaryModal";
 import { toast } from "react-toastify";
 import { logoutUser } from "../../api/api";
 import { MdDashboard } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
 
 const sidebarMenu = [
   {
     link: "Dashboard",
     path: "/dashboard",
     Icon: MdDashboard,
+  },
+  {
+    link: "Users",
+    path: "/users",
+    Icon: FaUsers,
   },
   {
     link: "Profile",
