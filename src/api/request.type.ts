@@ -11,6 +11,7 @@ export interface IRegisterUser {
 }
 
 export interface IUser {
+  _id: string;
   email: string;
   name: string;
   gender: string;

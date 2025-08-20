@@ -13,3 +13,6 @@ export const logoutUser = () => axiosInstance.get("users/logout");
 
 export const updateUser = (userId: string, payload: IUser) =>
   axiosInstance.put(`users/update-user/${userId}`, payload);
+
+export const getActiveMatches = (userId: string) =>
+  axiosInstance.get(`users/get-active-matches/${userId}`);
