@@ -78,27 +78,40 @@ const Users = () => {
         {users.length === 0 ? (
           <div className="text-gray-500 text-sm">No Users Found</div>
         ) : (
-          users.map((ele) => (
-            <div className="flex items-center gap-3">
-              <div>
-                <Avatar style={{ backgroundColor: ele.color }}>
-                  <div className="text-white"> {ele.name[0]}</div>
-                </Avatar>
-              </div>
-              <div>
-                <div className="flex items-center gap-3">
-                  <div>{ele.name}</div> |
-                  <Link to="/" className="text-primary text-sm">
-                    View Profile
-                  </Link>
+          <div className="space-y-5">
+            {users.map((ele) => (
+              <div className="flex items-center gap-3">
+                <div>
+                  <Avatar style={{ backgroundColor: ele.color }}>
+                    <div className="text-white"> {ele.name[0]}</div>
+                  </Avatar>
                 </div>
-                <div className="flex gap-2 text-[13px] text-gray-500">
-                  <div>Skills : </div>
-                  <div>{ele.teachSkills.map((ele) => ele).join(", ")}</div>
+                <div>
+                  <div className="flex items-center gap-3">
+                    <div>{ele.name}</div> |
+                    <Link
+                      to={`/user-profile/${ele._id}`}
+                      className="text-primary text-sm"
+                    >
+                      View Profile
+                    </Link>
+                  </div>
+                  <div className="flex gap-2 text-[13px] text-gray-500">
+                    {ele.teachSkills.length === 0 ? (
+                      <>No Skills</>
+                    ) : (
+                      <>
+                        <div>Skills : </div>
+                        <div>
+                          {ele.teachSkills.map((ele) => ele).join(", ")}
+                        </div>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))
+            ))}
+          </div>
         )}
       </div>
     </div>

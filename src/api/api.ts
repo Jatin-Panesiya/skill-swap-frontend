@@ -9,6 +9,9 @@ export const loginUser = (payload: ILoginUser) =>
 
 export const getLoggedInUser = () => axiosInstance.get("users/get-user");
 
+export const getUserById = (userId: string) =>
+  axiosInstance.get(`users/get-user/${userId}`);
+
 export const logoutUser = () => axiosInstance.get("users/logout");
 
 export const updateUser = (userId: string, payload: IUser) =>

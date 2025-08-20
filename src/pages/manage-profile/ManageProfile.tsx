@@ -10,7 +10,7 @@ import MultiSelectField from "../../components/MultiSelectField/MultiSelectField
 import { updateUser } from "../../api/api";
 import { toast } from "react-toastify";
 import { setLocalStorage } from "../../utils/common";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { skills } from "../../utils/constants";
 
 const ManageProfile = () => {
@@ -43,7 +43,15 @@ const ManageProfile = () => {
 
   return (
     <form onSubmit={onSubmit} className="w-full">
-      <div className="font-bold text-2xl mb-5">Edit Profile</div>
+      <div className="flex items-center gap-3 mb-5">
+        <div className="font-bold text-2xl ">Edit Profile</div>
+        <Link
+          to={`/user-profile/${user?._id}`}
+          className="text-primary text-sm"
+        >
+          View Public Profile
+        </Link>
+      </div>
       <div className="grid md:grid-cols-2 gap-5">
         <InputField
           name="email"
