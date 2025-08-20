@@ -30,7 +30,7 @@ const Matches = () => {
         <div className="flex items-center justify-between">
           <div>Active Matches</div>
           <Button disabled={loading} loading={loading} onClick={getMatches}>
-            Find Matches
+            Find <span className="max-340:hidden ps-1"> Matches</span>
           </Button>
         </div>
         <Divider className="my-3" />

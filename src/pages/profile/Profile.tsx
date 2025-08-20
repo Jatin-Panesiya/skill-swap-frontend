@@ -2,22 +2,27 @@ import { useEffect, useState } from "react";
 import type { IUser } from "../../api/request.type";
 import { toast } from "react-toastify";
 import { getUserById } from "../../api/api";
-import { Link, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { IoArrowBackCircle } from "react-icons/io5";
+import { Loader } from "@mantine/core";
 
 const Profile = () => {
   const { id } = useParams<{ id: string }>();
   const [user, setUser] = useState<IUser>();
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const getUser = async () => {
     try {
       if (!id) return;
+      setLoading(true);
       const response = await getUserById(id);
 
       setUser(response.data.user);
     } catch (error: any) {
       toast.error(error.message || "Something went wrong");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -36,7 +41,16 @@ const Profile = () => {
           Back
         </button>
       </div>
-      <div>{user?.name}</div>
+
+      {loading ? (
+        <div className="flex justify-center w-full">
+          <Loader color="blue" />
+        </div>
+      ) : (
+        <>
+          <div>{user?.name}</div>
+        </>
+      )}
     </div>
   );
 };

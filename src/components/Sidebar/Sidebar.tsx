@@ -71,7 +71,7 @@ const Sidebar = () => {
         <div className="space-y-2 text-md">
           {sidebarMenu.map(({ path, Icon, link }, index) => (
             <NavLink
-              className="p-1 font-semibold text-gray-500 block w-full"
+              className="p-1 font-semibold hover:!text-primary text-gray-500 block w-full"
               to={path}
               key={index}
             >

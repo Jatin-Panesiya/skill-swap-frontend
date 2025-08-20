@@ -14,13 +14,16 @@ import { Link, useNavigate } from "react-router";
 import { skills } from "../../utils/constants";
 
 const ManageProfile = () => {
-  const { handleSubmit, control, reset } = useForm({
+  const { handleSubmit, control, reset, watch } = useForm({
     resolver: yupResolver(profileSchema),
   });
 
   const { loading, user } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+  const [teachSkills, setTeachSkills] = useState<string[]>(skills);
+  const [learnSkills, setLearnSkills] = useState<string[]>(skills);
 
   useEffect(() => {
     if (loading || !user) return;
@@ -40,6 +43,18 @@ const ManageProfile = () => {
       setIsLoading(false);
     }
   });
+
+  useEffect(() => {
+    const data = watch("teachSkills");
+    const filteredData = skills.filter((skill) => !data?.includes(skill));
+    setLearnSkills(filteredData);
+  }, [watch("teachSkills")]);
+
+  useEffect(() => {
+    const data = watch("learnSkills");
+    const filteredData = skills.filter((skill) => !data?.includes(skill));
+    setTeachSkills(filteredData);
+  }, [watch("learnSkills")]);
 
   return (
     <form onSubmit={onSubmit} className="w-full">
@@ -95,7 +110,7 @@ const ManageProfile = () => {
           control={control}
           label="Skills you can teach"
           placeholder="Pick value"
-          data={skills}
+          data={teachSkills}
         />
 
         <MultiSelectField
@@ -103,7 +118,7 @@ const ManageProfile = () => {
           control={control}
           label="Skills you want to learn"
           placeholder="Pick value"
-          data={skills}
+          data={learnSkills}
         />
       </div>
 

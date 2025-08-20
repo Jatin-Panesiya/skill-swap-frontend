@@ -3,6 +3,7 @@
 @theme {
   --breakpoint-500: 500px;
   --breakpoint-600: 600px;
+  --breakpoint-340: 340px;
   --color-primary: #008be1;
 }
 
