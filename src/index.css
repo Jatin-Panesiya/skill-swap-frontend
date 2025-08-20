@@ -7,28 +7,24 @@
     color: black !important;
 }
 
-/* For Chrome, Edge, and Safari */
-::-webkit-scrollbar {
-  width: 5px;              /* scrollbar width */
-  height: 5px;             /* scrollbar height for horizontal */
+@font-face {
+  font-family: poppins-regular;
+  src: url('/public/fonts/poppins.regular.ttf');
 }
 
-::-webkit-scrollbar-track {
-  background: #7da2d8;     /* track color */
-  border-radius: 10px;
+.poppins-regular {
+  font-family: poppins-regular;
+  letter-spacing: 0.5px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #888;        /* thumb color */
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;        /* hover color */
-}
-
-/* For Firefox */
 * {
-  scrollbar-width: thin;   /* auto | thin | none */
-  scrollbar-color: #888 #f1f1f1; /* thumb | track */
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.active {
+  color: black;
+  .side-icon{
+      color: #228be6;
+  }
 }

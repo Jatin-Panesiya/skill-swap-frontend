@@ -41,74 +41,72 @@ const ManageProfile = () => {
   });
 
   return (
-    <div>
-      <form onSubmit={onSubmit} className="p-5 mx-auto max-w-[900px]">
-        <div className="py-5 font-bold text-2xl">Edit Profile</div>
-        <div className="space-y-4 h-[calc(100vh-230px)] overflow-auto">
-          <InputField
-            name="email"
-            label="Email Address"
-            control={control}
-            disabled
-            placeholder="Email address"
-            type="text"
-          />
+    <form onSubmit={onSubmit} className="w-full">
+      <div className="font-bold text-2xl mb-5">Edit Profile</div>
+      <div className="grid md:grid-cols-2 gap-5">
+        <InputField
+          name="email"
+          label="Email Address"
+          control={control}
+          disabled
+          placeholder="Email address"
+          type="text"
+        />
 
-          <InputField
-            name="role"
-            label="Role"
-            control={control}
-            disabled
-            type="text"
-          />
+        <InputField
+          name="role"
+          label="Role"
+          control={control}
+          disabled
+          type="text"
+        />
 
-          <InputField
-            name="name"
-            label="Name"
-            control={control}
-            placeholder="Name"
-            type="text"
-          />
+        <InputField
+          name="name"
+          label="Name"
+          control={control}
+          placeholder="Name"
+          type="text"
+        />
 
-          <SelectField
-            label="Gender"
-            placeholder="Gender"
-            control={control}
-            name="gender"
-            data={[
-              { value: "Male", label: "Male" },
-              { value: "Female", label: "Female" },
-              { value: "Other", label: "Other" },
-            ]}
-          />
+        <SelectField
+          label="Gender"
+          placeholder="Gender"
+          control={control}
+          name="gender"
+          data={[
+            { value: "Male", label: "Male" },
+            { value: "Female", label: "Female" },
+            { value: "Other", label: "Other" },
+          ]}
+        />
 
-          <MultiSelectField
-            name="teachSkills"
-            control={control}
-            label="Skills You Know"
-            placeholder="Pick value"
-            data={["React", "Angular", "Vue", "Svelte"]}
-          />
+        <MultiSelectField
+          name="teachSkills"
+          control={control}
+          label="Skills you can teach"
+          placeholder="Pick value"
+          data={["React", "Angular", "Vue", "Svelte"]}
+        />
 
-          <MultiSelectField
-            name="learnSkills"
-            control={control}
-            label="Skills You Want To Learn"
-            placeholder="Pick value"
-            data={["React", "Angular", "Vue", "Svelte"]}
-          />
-        </div>
+        <MultiSelectField
+          name="learnSkills"
+          control={control}
+          label="Skills you want to learn"
+          placeholder="Pick value"
+          data={["React", "Angular", "Vue", "Svelte"]}
+        />
+      </div>
 
-        <div className="flex gap-5 justify-end">
-          <Button variant="light" onClick={() => navigate("/dashboard")}>
-            Back To Home
-          </Button>
-          <Button loading={isLoading} disabled={loading} type="submit">
-            Save Changes
-          </Button>
-        </div>
-      </form>
-    </div>
+      <div className="flex gap-5 justify-end mt-5">
+        <Button variant="outline" onClick={() => navigate("/dashboard")}>
+          Back To Home
+        </Button>
+        <Button loading={isLoading} disabled={loading} type="submit">
+          Save Changes
+        </Button>
+      </div>
+    </form>
   );
 };
 
