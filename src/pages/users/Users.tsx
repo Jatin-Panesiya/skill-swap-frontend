@@ -111,21 +111,12 @@ const Users = () => {
                     {ele.teachSkills.length === 0 ? (
                       <>No Skills</>
                     ) : (
-<<<<<<< HEAD
                       <div className="flex gap-2">
                         <div className="text-nowrap">Skills : </div>
                         <div>
                           {ele.teachSkills.map((ele) => ele).join(", ")}
                         </div>
                       </div>
-=======
-                      <>
-                        <div>Skills : </div>
-                        <div>
-                          {ele.teachSkills.map((ele) => ele).join(", ")}
-                        </div>
-                      </>
->>>>>>> 9ba4992916c0f3e72f4a3337b70fc55bf228e8da
                     )}
                   </div>
                 </div>

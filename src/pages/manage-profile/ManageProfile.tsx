@@ -46,15 +46,15 @@ const ManageProfile = () => {
 
   useEffect(() => {
     const data = watch("teachSkills");
-    const filteredData = skills.filter((skill) => !data.includes(skill));
+    const filteredData = skills.filter((skill) => !data?.includes(skill));
     setLearnSkills(filteredData);
   }, [watch("teachSkills")]);
 
   useEffect(() => {
-    const data = watch("teachSkills");
-    const filteredData = skills.filter((skill) => !data.includes(skill));
-    setLearnSkills(filteredData);
-  }, [watch("teachSkills")]);
+    const data = watch("learnSkills");
+    const filteredData = skills.filter((skill) => !data?.includes(skill));
+    setTeachSkills(filteredData);
+  }, [watch("learnSkills")]);
 
   return (
     <form onSubmit={onSubmit} className="w-full">
