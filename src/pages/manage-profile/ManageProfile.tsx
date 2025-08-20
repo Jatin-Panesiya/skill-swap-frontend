@@ -11,6 +11,7 @@ import { updateUser } from "../../api/api";
 import { toast } from "react-toastify";
 import { setLocalStorage } from "../../utils/common";
 import { useNavigate } from "react-router";
+import { skills } from "../../utils/constants";
 
 const ManageProfile = () => {
   const { handleSubmit, control, reset } = useForm({
@@ -86,7 +87,7 @@ const ManageProfile = () => {
           control={control}
           label="Skills you can teach"
           placeholder="Pick value"
-          data={["React", "Angular", "Vue", "Svelte"]}
+          data={skills}
         />
 
         <MultiSelectField
@@ -94,7 +95,7 @@ const ManageProfile = () => {
           control={control}
           label="Skills you want to learn"
           placeholder="Pick value"
-          data={["React", "Angular", "Vue", "Svelte"]}
+          data={skills}
         />
       </div>
 

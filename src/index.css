@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-500: 500px;
+  --breakpoint-600: 600px;
+}
+
+
 .mantine-InputWrapper-label {
     margin-bottom: 5px;
 }

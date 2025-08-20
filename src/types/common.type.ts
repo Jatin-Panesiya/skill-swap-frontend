@@ -13,3 +13,5 @@ export interface IUser {
   createdAt: string;
   updatedAt: string;
 }
+
+export type Skill = "React" | "Angular" | "Svelte" | "Vue" | "Android";
