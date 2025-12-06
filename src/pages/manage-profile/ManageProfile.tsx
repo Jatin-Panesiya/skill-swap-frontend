@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { profileSchema } from "./ProfileSchema";
 import InputField from "../../components/InputField/InputField";
-import { Button } from "@mantine/core";
+import Button from "../../components/Button/Button";
 import useAuth from "../../hooks/useAuth/useAuth";
 import { useEffect, useState } from "react";
 import SelectField from "../../components/SelectField/SelectField";
@@ -58,16 +58,26 @@ const ManageProfile = () => {
 
   return (
     <form onSubmit={onSubmit} className="w-full">
-      <div className="flex items-center gap-3 mb-5">
-        <div className="font-bold text-2xl ">Edit Profile</div>
-        <Link
-          to={`/user-profile/${user?._id}`}
-          className="text-primary text-sm"
-        >
-          View Public Profile
-        </Link>
+      <div className="mb-6">
+        <div className="flex items-center gap-4 mb-2">
+          <h1 className="text-h1 font-bold" style={{ color: '#6366F1' }}>
+            Edit Profile
+          </h1>
+          <Link
+            to={`/user-profile/${user?._id}`}
+            className="text-sm font-semibold transition-all duration-300"
+            style={{ color: '#6366F1' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = '#4F46E5'}
+            onMouseLeave={(e) => e.currentTarget.style.color = '#6366F1'}
+          >
+            View Public Profile →
+          </Link>
+        </div>
+        <p className="text-sm" style={{ color: '#475569' }}>Update your profile information and skills</p>
       </div>
-      <div className="grid md:grid-cols-2 gap-5">
+      
+      <div className="card mb-6">
+        <div className="grid md:grid-cols-2 gap-6">
         <InputField
           name="email"
           label="Email Address"
@@ -120,13 +130,22 @@ const ManageProfile = () => {
           placeholder="Pick value"
           data={learnSkills}
         />
+        </div>
       </div>
 
-      <div className="flex gap-5 justify-end mt-5">
-        <Button variant="outline" onClick={() => navigate("/dashboard")}>
+      <div className="flex gap-4 justify-end">
+        <Button 
+          variant="secondary"
+          onClick={() => navigate("/dashboard")}
+        >
           Back To Home
         </Button>
-        <Button loading={isLoading} disabled={loading} type="submit">
+        <Button 
+          variant="primary"
+          loading={isLoading}
+          disabled={loading}
+          type="submit"
+        >
           Save Changes
         </Button>
       </div>

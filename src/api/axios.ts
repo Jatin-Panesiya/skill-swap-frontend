@@ -1,4 +1,3 @@
-// src/lib/axios.js
 import axios from "axios";
 import { API_URL } from "../utils/environment";
 

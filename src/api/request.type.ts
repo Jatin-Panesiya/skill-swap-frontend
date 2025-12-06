@@ -8,6 +8,9 @@ export interface IRegisterUser {
   name: string;
   password: string;
   confirmPassword: string;
+  role?: "USER" | "ADMIN";
+  teachSkills: string[];
+  learnSkills: string[];
 }
 
 export interface IUser {
@@ -17,5 +20,40 @@ export interface IUser {
   gender: string;
   teachSkills: string[];
   learnSkills: string[];
+  role?: "USER" | "ADMIN";
   color?:string
+}
+
+export interface IMatch {
+  _id: string;
+  requester: IUser;
+  recipient: IUser;
+  status: "pending" | "accepted" | "rejected" | "mutual";
+  isMutual?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface IMessage {
+  _id: string;
+  sender: IUser;
+  receiver: IUser;
+  content: string;
+  read: boolean;
+  readAt?: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface IBooking {
+  _id: string;
+  requester: IUser;
+  provider: IUser;
+  skill: string;
+  date: string;
+  time: string;
+  status: "pending" | "confirmed" | "cancelled" | "completed";
+  notes?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }

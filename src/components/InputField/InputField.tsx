@@ -13,7 +13,7 @@ const InputField = ({
 }: IInputFieldProps) => {
   const {
     field,
-    fieldState: { error },
+    fieldState: { error, isTouched },
   } = useController({
     name,
     control,
@@ -27,10 +27,20 @@ const InputField = ({
           placeholder={placeholder}
           type={type}
           withAsterisk={withAsterisk}
-          error={error?.message}
+          error={isTouched ? error?.message : undefined}
           disabled={disabled}
           classNames={{
-            input: "bg-white/50 backdrop-blur-md",
+            input: "bg-white/90 border-gray-200 rounded-lg py-2.5 px-4 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200",
+            wrapper: "w-full",
+            error: "text-red-500 text-sm mt-1",
+          }}
+          styles={{
+            input: {
+              "&:focus": {
+                borderColor: "#3b82f6",
+                boxShadow: "0 0 0 3px rgba(59, 130, 246, 0.1)",
+              },
+            },
           }}
           {...rest}
         />
@@ -40,10 +50,20 @@ const InputField = ({
           placeholder={placeholder}
           type={type}
           withAsterisk={withAsterisk}
-          error={error?.message}
+          error={isTouched ? error?.message : undefined}
           disabled={disabled}
           classNames={{
-            input: "bg-white/50 backdrop-blur-md",
+            input: "bg-white/90 border-gray-200 rounded-lg py-2.5 px-4 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200",
+            wrapper: "w-full",
+            error: "text-red-500 text-sm mt-1",
+          }}
+          styles={{
+            input: {
+              "&:focus": {
+                borderColor: "#3b82f6",
+                boxShadow: "0 0 0 3px rgba(59, 130, 246, 0.1)",
+              },
+            },
           }}
           {...rest}
         />

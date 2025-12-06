@@ -14,7 +14,7 @@ const MultiSelectField = ({
 }: IMultiSelectFieldProps) => {
   const {
     field,
-    fieldState: { error },
+    fieldState: { error, isTouched },
   } = useController({
     name,
     control,
@@ -28,7 +28,7 @@ const MultiSelectField = ({
       withAsterisk={withAsterisk}
       disabled={disabled}
       data={data}
-      error={error?.message}
+      error={isTouched ? error?.message : undefined}
       classNames={{
         input: "bg-white/50 backdrop-blur-md",
       }}
